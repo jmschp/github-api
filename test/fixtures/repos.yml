@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  fork: false
+  description: MyText
+  clone_url: MyString
+  size: 1
+  stargazers_count: 1
+  watchers_count: 1
+  forks_count: 1
+  open_issues_count: 1
+  language: MyString
+  git_hub_user: one
+
+two:
+  name: MyString
+  fork: false
+  description: MyText
+  clone_url: MyString
+  size: 1
+  stargazers_count: 1
+  watchers_count: 1
+  forks_count: 1
+  open_issues_count: 1
+  language: MyString
+  git_hub_user: two
