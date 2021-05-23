@@ -1,0 +1,15 @@
+<div class='container'>
+  <h1>GitHubUsers#index</h1>
+  <p>Find me in app/views/git_hub_users/index.html.erb</p>
+  
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <%= text_field_tag('username', nil, class: "form-control", placeholder: "Username", aria: { label: "Username", describedby: "submit-username"}) %>
+    <%= button_tag "Submit", type: "button", class: "btn btn-dark", id: "submit-username" %>
+  </div>
+
+  <div>
+    <%= render partial: "shared/git_hub_user.html", collection: @git_hub_users %>
+  </div>
+
+</div>
