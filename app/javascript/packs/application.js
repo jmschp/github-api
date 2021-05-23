@@ -11,3 +11,9 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+import fetch_git_hub_api from "./fetch_git_hub_api";
+
+document.addEventListener("turbolinks:load", () => {
+  fetch_git_hub_api();
+})
