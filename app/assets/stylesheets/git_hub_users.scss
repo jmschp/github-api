@@ -1,3 +1,12 @@
 // Place all the styles related to the GitHubUsers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.user-cards-grid {
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 50px;
+  justify-content: center;
+  align-items: center;
+//   height: 100vh;
+}

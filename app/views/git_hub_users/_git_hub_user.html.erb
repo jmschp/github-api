@@ -1,0 +1,20 @@
+<div class="card">
+  <%= image_tag git_hub_user.avatar_url, alt: "Person", class: "card-image" %>
+  <p class="card-name"><%= git_hub_user.username %></p>
+  <div class="grid-container">
+    <div class="grid-child-posts">
+      <%= git_hub_user.followers %> followers 
+    </div>
+    <div class="grid-child-followers">
+      <%= git_hub_user.following %> following
+    </div>
+  </div>
+  <ul class="social-icons">
+    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+    <li><a href="#"><i class="fa fa-codepen"></i></a></li>
+  </ul>
+  <button class="btn-card draw-border">Follow</button>
+  <button class="btn-card draw-border">Message</button>
+</div>

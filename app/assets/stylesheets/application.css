@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
+body {
+  font-family: "Baloo Paaji 2", cursive;
+}
