@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_212624) do
 
   create_table "git_hub_users", force: :cascade do |t|
     t.string "username", null: false
-    t.string "name", null: false
+    t.string "name"
     t.string "avatar_url"
     t.integer "public_repos", default: 0, null: false
     t.integer "followers", default: 0, null: false
