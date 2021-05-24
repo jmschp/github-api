@@ -1,18 +1,19 @@
 <div class="card">
   <%= image_tag git_hub_user.avatar_url, alt: "Person", class: "card-image" %>
   <p class="card-name"><%= git_hub_user.name %></p>
+  <p class="card-username"><%= git_hub_user.username %></p>
   <div class="grid-container">
-    <div class="grid-child-posts">
+    <div>
       <%= pluralize(git_hub_user.followers, 'Follower', 'Followers') %> 
     </div>
-    <div class="grid-child-followers">
-      <%= pluralize(git_hub_user.following, 'Following') %> 
+    <div>
+      <%= git_hub_user.following %> Following
     </div>
   </div>
   <ul class="social-icons">
     <li>
       <%= link_to "https://github.com/#{git_hub_user.username}", target: "_blank" do %>
-        <i class="fab fa-github"></i></i>
+        <i class="fab fa-github"></i>
       <% end %>
     </li>   
   </ul>
