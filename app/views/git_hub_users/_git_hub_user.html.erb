@@ -1,20 +1,21 @@
 <div class="card">
   <%= image_tag git_hub_user.avatar_url, alt: "Person", class: "card-image" %>
-  <p class="card-name"><%= git_hub_user.username %></p>
+  <p class="card-name"><%= git_hub_user.name %></p>
   <div class="grid-container">
     <div class="grid-child-posts">
-      <%= git_hub_user.followers %> Followers 
+      <%= pluralize(git_hub_user.followers, 'Follower', 'Followers') %> 
     </div>
     <div class="grid-child-followers">
-      <%= git_hub_user.following %> Following
+      <%= pluralize(git_hub_user.following, 'Following') %> 
     </div>
   </div>
   <ul class="social-icons">
-    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-    <li><a href="#"><i class="fab fa-codepen"></i></a></li>
+    <li>
+      <%= link_to "https://github.com/#{git_hub_user.username}", target: "_blank" do %>
+        <i class="fab fa-github"></i></i>
+      <% end %>
+    </li>   
   </ul>
-  <button class="btn-card draw-border">Follow</button>
-  <button class="btn-card draw-border">Message</button>
+  <button class="btn-card draw-border">Details</button>
+  <button class="btn-card draw-border">Compare</button>
 </div>
