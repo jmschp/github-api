@@ -4,19 +4,19 @@ class GitHubUsersController < ApplicationController
   end
 
   def create
-    # byebug
-    new_git_hub_user = GitHubUser.new(git_hub_user_params)
-    if new_git_hub_user.save
-      redirect_to git_hub_users_path
+    git_hub_user = GitHubUser.new(git_hub_user_params)
+    # binding.pry
+    if git_hub_user.save
+      render json: git_hub_user, status: 201
     else
-      redirect_to :index
+      render json: git_hub_user.errors.messages, status: 409
     end
   end
 
   def git_hub_user_params
-    git_hub_user = params.require(:username).permit(:login, :name, :avatar_url, :public_repos, :followers, :following, :created_at)
-    git_hub_user[:username] = git_hub_user.delete :login
-    git_hub_user[:since] = git_hub_user.delete :created_at
-    git_hub_user
+    git_hub_user_params = params.require(:username).permit(:login, :name, :avatar_url, :public_repos, :followers, :following, :created_at)
+    git_hub_user_params[:username] = git_hub_user_params.delete :login
+    git_hub_user_params[:since] = git_hub_user_params.delete :created_at
+    git_hub_user_params
   end
 end
