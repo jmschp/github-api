@@ -1,6 +1,11 @@
 class GitHubUsersController < ApplicationController
+  before_action :set_git_hub_user, only: %i[show]
+
   def index
     @git_hub_users = GitHubUser.all
+  end
+
+  def show
   end
 
   def create
@@ -11,6 +16,12 @@ class GitHubUsersController < ApplicationController
     else
       render json: git_hub_user.errors.messages, status: 409
     end
+  end
+
+  private
+
+  def set_git_hub_user
+    @git_hub_user = GitHubUser.find(params[:id])
   end
 
   def git_hub_user_params
