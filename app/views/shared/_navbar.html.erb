@@ -1,10 +1,10 @@
-<nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand">Navbar</a>
-    <form class="d-flex">
-      <span class="input-group-text" id="basic-addon1">@</span>
+    <%= link_to "Home", root_path, class: "navbar-brand" %>
+    <div class="d-flex user-search">
+      <span class="input-group-text">@</span>
       <%= text_field_tag('username', nil, class: "form-control me-2", type: "search", placeholder: "Username", aria: { label: "Search", describedby: "submit-username"}) %>
       <%= button_tag "Submit", type: "submit", class: "btn btn-outline-success", id: "submit-username" %>  
-    </form>
+    </div>
   </div>
 </nav>
