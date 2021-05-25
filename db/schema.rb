@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_05_22_212624) do
     t.integer "watchers_count", default: 0, null: false
     t.integer "forks_count", default: 0, null: false
     t.integer "open_issues_count", default: 0, null: false
-    t.string "language", null: false
+    t.string "language"
     t.bigint "git_hub_user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

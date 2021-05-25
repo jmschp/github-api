@@ -10,7 +10,7 @@ class CreateRepos < ActiveRecord::Migration[6.1]
       t.integer :watchers_count, null: false, default: 0
       t.integer :forks_count, null: false, default: 0
       t.integer :open_issues_count, null: false, default: 0
-      t.string :language, null: false
+      t.string :language
       t.references :git_hub_user, null: false, foreign_key: true
 
       t.timestamps
