@@ -6,4 +6,11 @@
 body {
   font-family: "Baloo Paaji 2", cursive;
   background-color: lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
+  min-height: calc(100vh - 150px);
 }
