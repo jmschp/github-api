@@ -1,1 +1,50 @@
-<h1>helllo</h1>
+<div class="container d-flex justify-content-center mt-5">
+  <div class="user-show-details">
+    <%= image_tag @git_hub_user.avatar_url %>
+    <div class='user-show-stats'>
+      <h1><%= @git_hub_user.name || @git_hub_user.username %></h1>
+      <table class="table table-borderless table-sm">
+        <tbody>
+          <tr>
+            <td><i class="fas fa-user-friends"></i> Followers:</td>
+            <td><%= @git_hub_user.followers%></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-user-friends"></i> Following:</td>
+            <td><%= @git_hub_user.following %></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-clock"></i> Coding since</td>
+            <td><%= time_ago_in_words(@git_hub_user.since) %></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-database"></i> Public Repos:</td>
+            <td><%= @git_hub_user.public_repos %></td>
+          </tr>
+          <% if @git_hub_user.repos.present?  %>
+            <tr>
+              <td><i class="fas fa-star"></i> Total starts:</td>
+              <td><%= @total_stars %></td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-star"></i> Watchers:</td>
+              <td><%= @watchers_count %></td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-star"></i> Forks:</td>
+              <td><%= @forks_count %></td>
+            </tr>
+            <tr>
+              <td><i class="fas fa-star"></i> Open issues:</td>
+              <td><%= @open_issues_count %></td>
+            </tr>
+          <% else %>
+            <tr>
+              <td colspan="2"><%= link_to "Fetch user repos for more info", git_hub_user_repo_path(@git_hub_user), remote: true, method: :post, class: "btn btn-warning" %> </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

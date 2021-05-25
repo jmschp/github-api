@@ -5,7 +5,14 @@ class GitHubUsersController < ApplicationController
     @git_hub_users = GitHubUser.all
   end
 
-  def show; end
+  def show
+    if @git_hub_user.repos.present?
+      @total_stars = @git_hub_user.repos.sum(:stargazers_count)
+      @watchers_count = @git_hub_user.repos.sum(:watchers_count)
+      @forks_count = @git_hub_user.repos.sum(:forks_count)
+      @open_issues_count = @git_hub_user.repos.sum(:open_issues_count)
+    end
+  end
 
   def create
     git_hub_user = GitHubUser.new(git_hub_user_params)
@@ -20,7 +27,7 @@ class GitHubUsersController < ApplicationController
   private
 
   def set_git_hub_user
-    @git_hub_user = GitHubUser.find(params[:id])
+    @git_hub_user = GitHubUser.includes(:repos).find(params[:id])
   end
 
   def git_hub_user_params
