@@ -4,7 +4,7 @@
   <p class="card-username"><%= git_hub_user.username %></p>
   <div class="grid-container">
     <div>
-      <%= pluralize(git_hub_user.followers, 'Follower', 'Followers') %> 
+      <%= pluralize(git_hub_user.followers, 'Follower', 'Followers') %>
     </div>
     <div>
       <%= git_hub_user.following %> Following
@@ -12,11 +12,16 @@
   </div>
   <ul class="social-icons">
     <li>
-      <%= link_to "https://github.com/#{git_hub_user.username}", target: "_blank" do %>
+      <%= link_to "https://github.com/#{git_hub_user.username}", target: "_blank",  data: { "bs-toggle": "tooltip", "bs-placement": "left" }, title: "Visit GitHub profile" do %>
         <i class="fab fa-github"></i>
       <% end %>
-    </li>   
+    </li>
+    <li>
+      <%= link_to "https://github.com/#{git_hub_user.username}", target: "_blank",  data: { "bs-toggle": "tooltip", "bs-placement": "right" }, title: "Fetch user repos" do %>
+        <i class="fas fa-database"></i>
+      <% end %>
+    </li>
   </ul>
-    <%= link_to("Details", git_hub_user_path(git_hub_user), class: "btn-card draw-border") %>
-    <button class="btn-card draw-border">Compare</button>
+  <%= link_to("Details", git_hub_user_path(git_hub_user), class: "btn-card draw-border") %>
+  <button class="btn-card draw-border">Compare</button>
 </div>
