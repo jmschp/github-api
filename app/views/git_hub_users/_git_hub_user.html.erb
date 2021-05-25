@@ -17,7 +17,7 @@
       <% end %>
     </li>
     <li>
-      <%= link_to "https://github.com/#{git_hub_user.username}", target: "_blank",  data: { "bs-toggle": "tooltip", "bs-placement": "right" }, title: "Fetch user repos" do %>
+      <%= link_to git_hub_user_repo_path(git_hub_user), remote: true, method: :post, data: { "bs-toggle": "tooltip", "bs-placement": "right" }, title: "Fetch user repos" do %>
         <i class="fas fa-database"></i>
       <% end %>
     </li>
