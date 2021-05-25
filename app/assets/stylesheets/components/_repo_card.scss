@@ -1,0 +1,29 @@
+.repo-card {
+  border: solid 2px black;
+  height: 200px;
+  width: 500px;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #252732;
+  color: white;
+  box-shadow: 0px 0px 10px 3px deeppink;
+  .repo-infos {
+    width: 70%;
+    text-align: justify;
+    h2 {
+      font-size: 1rem;
+  
+    }
+  }
+  .repo-stats {
+    position: relative;
+    .language-icon {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      font-size: 2.5rem;
+    }
+  }
+}

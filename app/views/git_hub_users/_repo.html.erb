@@ -1,0 +1,19 @@
+<div class="repo-card">
+  <div class="repo-infos">
+    <h2><%= repo.name %></h2>
+    <p><%= repo.clone_url %></p>
+    <p><%= repo.description %></p>
+  </div>
+  <div class="repo-stats">
+    <ul>
+      <li><i class="fas fa-code"></i> <%= repo.size %> KB</li>
+      <li><i class="fas fa-star"></i> <%= repo.stargazers_count %></li>
+      <li><i class="fas fa-eye"></i> <%= repo.watchers_count %></li>
+      <li><i class="fas fa-code-branch"></i> <%= repo.forks_count %></li>
+      <li><i class="fas fa-exclamation-circle"></i> <%= repo.open_issues_count %></li>
+    </ul>
+    <% if repo.language.present? %>
+      <i class="devicon-<%= repo.language.downcase %>-plain colored language-icon"></i>
+    <% end %>
+  </div>
+</div>

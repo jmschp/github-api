@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center mt-5">
+<div class="container mt-5">
   <div class="user-show-details">
     <%= image_tag @git_hub_user.avatar_url %>
     <div class='user-show-stats'>
@@ -22,29 +22,32 @@
             <td><%= @git_hub_user.public_repos %></td>
           </tr>
           <% if @git_hub_user.repos.present?  %>
-            <tr>
-              <td><i class="fas fa-star"></i> Total starts:</td>
-              <td><%= @total_stars %></td>
-            </tr>
-            <tr>
-              <td><i class="fas fa-star"></i> Watchers:</td>
-              <td><%= @watchers_count %></td>
-            </tr>
-            <tr>
-              <td><i class="fas fa-star"></i> Forks:</td>
-              <td><%= @forks_count %></td>
-            </tr>
-            <tr>
-              <td><i class="fas fa-star"></i> Open issues:</td>
-              <td><%= @open_issues_count %></td>
-            </tr>
+          <tr>
+            <td><i class="fas fa-star"></i> Total starts:</td>
+            <td><%= @total_stars %></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-eye"></i> Watchers:</td>
+            <td><%= @watchers_count %></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-code-branch"></i> Forks:</td>
+            <td><%= @forks_count %></td>
+          </tr>
+          <tr>
+            <td><i class="fas fa-exclamation-circle"></i> Open issues:</td>
+            <td><%= @open_issues_count %></td>
+          </tr>
           <% else %>
-            <tr>
-              <td colspan="2"><%= link_to "Fetch user repos for more info", git_hub_user_repo_path(@git_hub_user), remote: true, method: :post, class: "btn btn-warning" %> </td>
-            </tr>
+          <tr>
+            <td colspan="2"><%= link_to "Fetch user repos for more info", git_hub_user_repo_path(@git_hub_user), remote: true, method: :post, class: "btn btn-warning" %> </td>
+          </tr>
           <% end %>
         </tbody>
       </table>
     </div>
+  </div>
+  <div class="mt-5 repos-grid">
+    <%= render partial: "repo", collection: @git_hub_user.repos %>
   </div>
 </div>
