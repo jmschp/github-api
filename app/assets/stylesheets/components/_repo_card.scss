@@ -19,6 +19,9 @@
   }
   .repo-stats {
     position: relative;
+    li {
+      list-style: none;
+    }
     .language-icon {
       position: absolute;
       right: 0;

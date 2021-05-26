@@ -11,19 +11,20 @@
 
 .user-show-details {
   display: flex;
-  width: 600px;
+  width: 650px;
   height: 350px;
   padding: 10px;
   box-shadow: 0px 0px 15px 3px deeppink;
+  background-color: #252732;
   margin: auto;
-  img {
-    width: 300px;
-  }
   .user-show-stats {
     margin-left: 15px;
     h1 {
       text-align: center;
       font-size: 1.3rem;
+    }
+    * {
+      color: white;
     }
   }
 }
