@@ -21,6 +21,11 @@
         <i class="fas fa-database"></i>
       <% end %>
     </li>
+        <li>
+      <%= link_to git_hub_user_path(git_hub_user), remote: true, method: :delete, data: { "bs-toggle": "tooltip", "bs-placement": "right", confirm: "Are you sure" }, title: "delete user" do %>
+        <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </li>
   </ul>
   <%= link_to("Details", git_hub_user_path(git_hub_user), class: "btn-card draw-border") %>
   <%= button_tag "Compare", class: "btn-card draw-border", data: { compare: "#{git_hub_user.id}" } %>

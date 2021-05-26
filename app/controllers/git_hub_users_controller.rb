@@ -1,5 +1,5 @@
 class GitHubUsersController < ApplicationController
-  before_action :set_git_hub_user, only: %i[show]
+  before_action :set_git_hub_user, only: %i[show destroy]
 
   def index
     @git_hub_users = GitHubUser.all
@@ -27,6 +27,11 @@ class GitHubUsersController < ApplicationController
   def compare_users
     @user_one = GitHubUser.find(params[:id1])
     @user_two = GitHubUser.find(params[:id2])
+  end
+
+  def destroy
+    @git_hub_user.destroy
+    redirect_to root_path
   end
 
   private
