@@ -8,32 +8,42 @@ export default function fetch_git_hub_api_username() {
       if (inputUsername.value) {
         await fetch(`https://api.github.com/users/${inputUsername.value}`, {
           accept: "application/vnd.github.v3+json",
-        }).then((response) => response.json())
+        })
+          .then((response) => {
+            if (response.ok) {
+              return response.json();
+            } else {
+              alert("Please verify the user name");
+              throw new Error(`Response ${response.status}`);
+            }
+          })
           .then((data) => {
             fetchWithAuth("/git_hub_users", {
               headers: { "Content-Type": "application/json" },
               method: "post",
               body: JSON.stringify({ username: data }),
-            }).then((response) => {
-              if (response.ok) {
-                Turbolinks.visit(window.location.href, { action: "replace" })
-              } else {
-                return response.json()
-              }
             })
-              .then(data => {
-                let alertMessage = ""
-                for (const attribute in data) {
-                  alertMessage += `${alertMessage} ${attribute} ${data[attribute]}\n`
+              .then((response) => {
+                if (response.ok) {
+                  Turbolinks.visit(window.location.href, { action: "replace" });
+                } else {
+                  throw new Error(response.json());
                 }
-                console.log(data);
-                alert(alertMessage);
               })
-              .catch(error => console.error(error));
-          });
+              .catch((error) => {
+                // console.log("data", data);
+                // let alertMessage = [];
+                // for (const attribute in data) {
+                //   alertMessage.push(`${alertMessage} ${attribute} ${data[attribute]}`);
+                // }
+                console.error(error);
+                alert("It was not possible to save that user");
+              });
+          })
+          .catch((error) => console.error(error));
       } else {
         alert("Please add a user name");
       }
     });
   }
-} 
+}
