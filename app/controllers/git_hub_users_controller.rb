@@ -6,12 +6,12 @@ class GitHubUsersController < ApplicationController
   end
 
   def show
-    if @git_hub_user.repos.present?
-      @total_stars = @git_hub_user.repos.sum(:stargazers_count)
-      @watchers_count = @git_hub_user.repos.sum(:watchers_count)
-      @forks_count = @git_hub_user.repos.sum(:forks_count)
-      @open_issues_count = @git_hub_user.repos.sum(:open_issues_count)
-    end
+    return unless @git_hub_user.repos.present?
+
+    @total_stars = @git_hub_user.repos.sum(:stargazers_count)
+    @watchers_count = @git_hub_user.repos.sum(:watchers_count)
+    @forks_count = @git_hub_user.repos.sum(:forks_count)
+    @open_issues_count = @git_hub_user.repos.sum(:open_issues_count)
   end
 
   def create
@@ -22,6 +22,11 @@ class GitHubUsersController < ApplicationController
     else
       render json: git_hub_user.errors.messages, status: 409
     end
+  end
+
+  def compare_users
+    @user_one = GitHubUser.find(params[:id1])
+    @user_two = GitHubUser.find(params[:id2])
   end
 
   private

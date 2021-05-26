@@ -1,0 +1,6 @@
+<div class="user-compare-card">
+  <h2><%= user.name || user.username %></h2>
+  <%= image_tag user.avatar_url %>
+  <%= image_tag "https://github-readme-stats.vercel.app/api?show_icons=true&theme=radical&hide_border=true&count_private=true&username=#{user.username}" %>
+  <%= image_tag "https://github-readme-stats.vercel.app/api/top-langs/?theme=radical&hide_border=true&card_width=495&username=#{user.username}" %>
+</div>

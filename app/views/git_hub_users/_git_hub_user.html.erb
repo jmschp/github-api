@@ -23,5 +23,5 @@
     </li>
   </ul>
   <%= link_to("Details", git_hub_user_path(git_hub_user), class: "btn-card draw-border") %>
-  <button class="btn-card draw-border">Compare</button>
+  <%= button_tag "Compare", class: "btn-card draw-border", data: { compare: "#{git_hub_user.id}" } %>
 </div>

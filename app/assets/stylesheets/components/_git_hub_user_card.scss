@@ -42,7 +42,7 @@
 .draw-border::after {
   border: 0 solid transparent;
   box-sizing: border-box;
-  content: '';
+  content: "";
   pointer-events: none;
   position: absolute;
   width: 0rem;
@@ -84,13 +84,17 @@
   transition-delay: 0s, 0.25s, 0s;
 }
 
+.compare-active {
+  color: #ffe593;
+}
+
 .btn-card {
   background: none;
   border: none;
   text-align: center;
   text-decoration: none;
   line-height: 1.5;
-  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  font: 700 1.2rem "Roboto Slab", sans-serif;
   padding: 0.75em 2em;
   letter-spacing: 0.05rem;
   margin: 0.5em;

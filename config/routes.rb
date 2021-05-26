@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :git_hub_users, only: %i[show create] do
     resource :repo, only: %i[create]
   end
+
+  get '/compare_users/:id1/:id2', to: 'git_hub_users#compare_users'
 end

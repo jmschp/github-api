@@ -34,3 +34,9 @@
   grid-gap: 30px;
   justify-items: center;
 }
+
+.compare-user-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+}
