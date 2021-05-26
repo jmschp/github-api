@@ -16,6 +16,8 @@ import fetch_git_hub_api from "./fetch_git_hub_api";
 import { initTooltips } from "./init_bootstrap";
 import selectUser from "./users_compare_selector";
 
+import "@fortawesome/fontawesome-free/js/all.min"
+
 document.addEventListener("turbolinks:load", () => {
   fetch_git_hub_api();
   initTooltips();
